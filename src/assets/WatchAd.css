@@ -1,0 +1,116 @@
+/* WatchAd.css */
+/* Navigation Bar */
+.navbar {
+  width: 100%;
+  background: rgba(30, 27, 75, 0.8);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem -0.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar a {
+  color: #facc15;
+  font-weight: bold;
+  text-decoration: none;
+  margin-left: 1.5rem;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #fb923c;
+}
+
+.navbar .logo {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #fff;
+}
+.watchad-container {
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    background: linear-gradient(135deg, #fc466b, #3f5efb);
+    font-family: 'Inter', sans-serif;
+    color: #fff;
+    box-sizing: border-box;
+  }
+  
+  /* Header */
+  .watchad-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .watchad-header h1 {
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(to right, #facc15, #fb923c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .watchad-header p {
+    font-size: 1rem;
+    color: #e0e7ff;
+  }
+  
+  /* Sponsor Grid */
+  .sponsor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  /* Sponsor Card */
+  .sponsor-card {
+    background-color: #1e1b4b;
+    padding: 1.5rem 1rem;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+    transition: transform 0.2s ease;
+  }
+  
+  .sponsor-card:hover {
+    transform: translateY(-6px);
+  }
+  
+  .sponsor-card img {
+    width: 100px;
+    margin-bottom: 1rem;
+  }
+  
+  .sponsor-card h3 {
+    font-size: 1.3rem;
+    color: #facc15;
+    margin-bottom: 0.5rem;
+  }
+  
+  .sponsor-card p {
+    font-size: 0.95rem;
+    color: #e4e4e7;
+    margin-bottom: 1rem;
+  }
+  
+  /* Button */
+  .watch-btn {
+    padding: 0.6rem 1.4rem;
+    background-color: #fbbf24;
+    color: #000;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  
+  .watch-btn:hover {
+    background-color: #fde68a;
+  }
+  
