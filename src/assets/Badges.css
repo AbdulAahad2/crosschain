@@ -1,268 +1,345 @@
-/* Navigation Bar */
-.navbar {
-  width: 100%;
-  background: rgba(30, 27, 75, 0.8);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem -0.5rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
+/* Import Montserrat font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
 
-.navbar a {
-  color: #facc15;
-  font-weight: bold;
-  text-decoration: none;
-  margin-left: 1.5rem;
-  font-size: 1rem;
-  transition: color 0.3s ease;
-}
-
-.navbar a:hover {
-  color: #fb923c;
-}
-
-.navbar .logo {
-  font-size: 1.3rem;
-  font-weight: 800;
-  color: #fff;
-}
-
+/* General Body and Container */
 .dashboard-container {
+  font-family: 'Montserrat', sans-serif;
+  background:linear-gradient(
+                180deg,
+                #FFAC4B 0%,    /* Orange Peel */
+                #FE7F53 25%,   /* Coral */
+                #FE6C5F 40%,   /* Bittersweet */
+                #C6589F 70%,   /* Mulberry */
+                #B856AD 100%   /* Steel Pink */
+              );
+  color: #333;
   min-height: 100vh;
-  padding: 2rem 1rem;
-  background: linear-gradient(135deg, #ff6a3d, #ffb86c);
-  font-family: 'Inter', sans-serif;
-  color: #fff;
+  padding: 1rem;
   box-sizing: border-box;
 }
 
-/* Dashboard Header */
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1e1b4b;
+  color: #fff;
+  padding: 1rem 0rem;
+  border-radius: 0 0 12px 12px;
+  z-index: 200;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.navbar .logo {
+  display: flex;
+  align-items: center;
+  font-size: 26px; /* Between 24px and 28px */
+  font-weight: 700; /* Bold */
+}
+
+.navbar .logo .highlight {
+  color: #facc15;
+}
+
+.navbar .nav-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.navbar .cta-btn {
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  color: #1e1b4b;
+  background: #facc15;
+  text-decoration: none;
+  font-weight: 500; /* Medium */
+  font-size: 18px; /* Increased for readability */
+  letter-spacing: 1px; /* Added for better spacing */
+  text-transform: uppercase;
+  transition: background 0.3s ease;
+}
+
+.navbar .cta-btn:hover {
+  background: #fb923c;
+}
+
+.navbar .cta-btn.secondary {
+  background: #8b949e; /* Lighter gray for better contrast with white text */
+  color: white;
+}
+
+.navbar .cta-btn.secondary:hover {
+  background: #6b7280; /* Slightly darker on hover */
+}
+
+/* Header */
 .dashboard-header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin: 2rem 0 0 19rem; /* Adjusted for navbar height */
 }
 
 .dashboard-header h1 {
-  font-size: 2.5rem;
-  font-weight: bold;
-  background: linear-gradient(to right, #facc15, #fb923c);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-size: 48px; /* Between 36px and 48px */
+  font-weight: 800; /* ExtraBold */
+  color: #fafafa;
+  text-transform: uppercase;              
+  letter-spacing: 3px; /* Wide spacing as noted */
 }
 
-.user-stats {
+.dashboard-header .user-stats {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
-  font-size: 1.1rem;
-  margin-top: 0.5rem;
-}
-
-.user-stats span {
-  background: #2d2a68;
-  padding: 0.5rem 1rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-}
-
-/* Dashboard Layout */
-.dashboard-content {
-  display: flex;
   gap: 2rem;
+  font-size: 18px; /* Increased for readability */
+  font-weight: 500; /* Medium for better prominence */
+  color: #666;
 }
 
+/* Sidebar */
 .sidebar {
-  width: 200px;
-  background: #1e1b4b;
+  width: 250px;
+  background: #2d2c61;
+  color: #fff;
+  border-radius: 12px;
   padding: 1.5rem;
-  border-radius: 20px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 4.5rem; /* Below navbar */
+  bottom: 1rem;
+  left: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+  overflow-y: auto;
+  will-change: transform; /* Optimize rendering */
 }
 
 .sidebar nav ul {
   list-style: none;
   padding: 0;
+  margin: 0;
+}
+
+.sidebar nav ul li {
+  margin-bottom: 1rem;
 }
 
 .sidebar .nav-button {
   width: 100%;
-  background: #2d2a68;
-  color: #fff;
-  padding: 0.8rem;
-  margin-bottom: 0.5rem;
-  border: none;
+  padding: 1rem;
+  background: #3b3a8b;
   border-radius: 8px;
-  font-size: 1rem;
+  color: #fff;
+  border: none;
+  text-align: left;
+  font-size: 16px; /* Body text (labels) */
+  font-weight: 400; /* Regular */
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: background 0.3s ease;
 }
 
 .sidebar .nav-button.active,
 .sidebar .nav-button:hover {
-  background: #facc15;
-  color: #1e1b4b;
+  background: #6b7280;
+}
+
+/* Main Content */
+.dashboard-content {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 5rem; /* Space for navbar */
+  padding-left: 280px; /* Increased to account for sidebar width + padding */
+  padding-right: 1rem;
+  padding-bottom: 2rem;
+  box-sizing: border-box;
 }
 
 .main-content {
   flex: 1;
-}
-
-/* User Info Card */
-.user-info {
-  background: #1e1b4b;
-  padding: 1.5rem;
-  border-radius: 7%;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  margin: 0 auto 2rem; /* Centers the card horizontally */
-  max-width: 1300px;     /* Optional: Prevents it from stretching too wide */
-}
-
-
-.user-info h2 {
-  font-size: 1.6rem;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-}
-
-.profile-card {
-  position: relative;
   padding: 1rem;
-  border: 2px solid #facc15;
-  border-radius: 16px;
-  animation: glow 2s ease-in-out infinite;
+}
+
+/* All Badges */
+.all-badges {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin: 0 auto; /* Center horizontally */
+  gap: 2rem;
 }
 
-
-@keyframes glow {
-  0% { box-shadow: 0 0 5px #facc15; }
-  50% { box-shadow: 0 0 15px #facc15; }
-  100% { box-shadow: 0 0 5px #facc15; }
-}
-
-.avatar {
-  border-radius: 50%;
-  margin-bottom: 1rem;
-}
-
-.user-details p {
-  font-size: 1rem;
-  margin: 0.3rem 0;
-}
-
-.streak-flame {
-  animation: flicker 1s infinite;
-}
-
-@keyframes flicker {
-  0% { opacity: 1; }
-  50% { opacity: 0.7; }
-  100% { opacity: 1; }
-}
-
-/* Badges Grid */
 .badges-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1.5rem;
 }
 
 .badge-card {
-  background: #2d2a68;
-  padding: 1.2rem 1rem;
-  border-radius: 16px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-  transition: transform 0.2s ease;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  background: rgba(30, 27, 75, 0.85);
+  padding: 1.5rem;
+  border-radius: 12px;
+  color: #fff;
   text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .badge-card.unlocked {
-  animation: badge-unlock 1s ease-in-out;
+  background: #4ade80;
 }
 
-@keyframes badge-unlock {
-  0% {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-.badge-card:hover {
-  transform: translateY(-4px);
+.badge-card.locked {
+  background: #6b7280;
 }
 
 .badge-icon {
   font-size: 2rem;
-  margin-bottom: 0.5rem;
 }
 
 .badge-title {
-  font-size: 1.2rem;
-  color: #facc15;
-  margin-bottom: 0.5rem;
+  font-size: 24px; /* Section headings */
+  font-weight: 700; /* Bold */
+  margin-top: 0.8rem;
 }
 
 .badge-desc {
-  color: #e4e4e7;
-  font-size: 0.95rem;
-  margin-bottom: 0.5rem;
-}
-
-.badge-card.locked {
-  opacity: 0.6;
-}
-
-.claim-button {
-  background: #facc15;
-  color: #1e1b4b;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: background 0.2s ease;
-}
-
-.claim-button:hover {
-  background: #fb923c;
-}
-
-/* Progress Bar */
-.progress-bar {
-  background: #1e1b4b;
-  height: 8px;
-  border-radius: 4px;
-  overflow: hidden;
+  font-size: 16px; /* Body text (labels) */
+  font-weight: 400; /* Regular */
+  color: #ccc;
   margin-top: 0.5rem;
 }
 
-.progress-fill {
-  background: #facc15;
-  height: 100%;
-  transition: width 0.5s ease;
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background-color: #ccc;
+  margin-top: 1rem;
+  border-radius: 8px;
 }
 
-/* Fallback if no badges */
-.no-badges {
-  grid-column: 1 / -1;
-  text-align: center;
-  font-style: italic;
-  color: #fff;
-  background-color: rgba(0, 0, 0, 0.15);
+.progress-fill {
+  height: 100%;
+  background-color: #facc15;
+  border-radius: 8px;
+}
+
+/* User Profile */
+.user-info {
+  background: #2d2c61;
+  color: white;
+  padding: 1.5rem;
   border-radius: 12px;
+}
+
+.user-info h2 {
+  text-align: center;
+  font-size: 24px; /* Section headings */
+  font-weight: 700; /* Bold */
+}
+
+.profile-card {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.user-details p {
+  font-size: 16px; /* Body text (labels) */
+  font-weight: 400; /* Regular */
+}
+
+.user-details p strong {
+  font-weight: 500; /* Medium for values */
+}
+
+.streak-flame {
+  color: #facc15;
+}
+
+/* Level Progress */
+.level-progress {
+  background: rgba(30, 27, 75, 0.85);
+  padding: 1.5rem;
+  border-radius: 12px;
+}
+
+.level-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* Reduced for better visibility */
+  gap: 0.8rem;
+}
+
+.level-card {
+  background: #6b7280;
+  color: white;
   padding: 1rem;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.level-card p {
+  font-size: 16px; /* Body text (labels) */
+  font-weight: 400; /* Regular */
+}
+
+.level-card.unlocked {
+  background: #4ade80;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 1024px) {
+  .dashboard-container {
+    padding: 0.5rem;
+  }
+
+  .navbar {
+    position: fixed;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .navbar .nav-links {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .dashboard-content {
+    flex-direction: column;
+    padding-left: 0;
+    padding-top: 6rem; /* Space for navbar */
+  }
+
+  .sidebar {
+    position: static; /* Stack above content on smaller screens */
+    width: 100%;
+    padding: 1rem;
+    border-radius: 12px;
+    margin: 0;
+    box-shadow: none;
+    max-height: none;
+  }
+
+  .main-content {
+    padding: 1rem;
+  }
+
+  .dashboard-header {
+    margin: 5rem 0 0 0; /* Adjusted for mobile */
+  }
 }
